@@ -16,7 +16,7 @@ http://eloquentjavascript.net/09_regexp.html
 function validatePIN (pin) {
   if (pin.length === 4 || pin.length === 6) {
   	// match length now, check int for all cars.
-  	var ifPinStr = /\D/.test(pin);
+  	var ifPinStr = /^\D/.test(pin);
 
   	if (ifPinStr) {
   		return false;
@@ -27,6 +27,11 @@ function validatePIN (pin) {
   } else {
   	return false;
   }
+}
+
+// This is the number one solution! And man it's much more clean!
+function validatePIN(pin) {
+  return /^(\d{4}|\d{6})$/.test(pin)
 }
 
 console.log(validatePIN("1234"));
