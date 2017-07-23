@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple slider</title>
+</head>
+<body>
+    <div class="simpleSlider">
+        <img class="slide" src="https://source.unsplash.com/random/1200x600" alt="image">
+        <img class="slide" src="https://source.unsplash.com/random/1200x500" alt="image">
+        <img class="slide" src="https://source.unsplash.com/random/1200x300" alt="image">
+        <button onclick="plusDivs(-1)">left</button>
+        <button onclick="plusDivs(+1)">right</button>
+    </div>
+
+<script>
+let slideIndex = 1;
+
+showDivs(slideIndex);
+
+function plusDivs(n) {
+    showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+    let i, slides;
+    slides = document.getElementsByClassName('slide');
+    
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1 ) {
+        slideIndex = slides.length;
+    }
+    for ( i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+    }
+    slides[slideIndex-1].style.display = 'block';
+}
+</script>
+</body>
+</html>
